@@ -1,476 +1,204 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CONCEPTE BY RAKOTO | Agence Digitale Premium</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services Premium - Digital Expertise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 1. Rafitra ankapobeny (Global Styles) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background: #050505;
-      color: white;
-      overflow-x: hidden;
-    }
+        body {
+            background: radial-gradient(circle at top, #1a1a1a 0%, #0d0d0d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .bg-glow {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: rgba(255, 215, 0, 0.12);
-      filter: blur(120px);
-      z-index: -1;
-    }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
 
-    .glow-1 {
-      top: -100px;
-      left: -100px;
-    }
+        /* Lohateny lehibe */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .glow-2 {
-      bottom: -100px;
-      right: -100px;
-    }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
 
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-      z-index: 999;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+        .section-header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: gold;
-    }
+        /* 2. Rafitry ny Grid ho an'ireo Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      transition: 0.3s;
-    }
+        /* 3. Style-n'ny Card tsirairay */
+        .service-card {
+            background: #141414;
+            border: 1px solid #262626;
+            border-radius: 16px;
+            padding: 35px 25px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
 
-    nav a:hover {
-      color: gold;
-    }
+        /* Hi-hover-na ny card */
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffcc00;
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.1);
+        }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 10%;
-      position: relative;
-    }
+        /* Sary fanehoana (Icons) */
+        .card-icon {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
 
-    .hero-content h1 {
-      font-size: 70px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
 
-    .gold {
-      color: gold;
-    }
+        .card-description {
+            color: #d4d4d4;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-    .hero-content p {
-      color: #ccc;
-      max-width: 750px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.7;
-    }
+        /* Andalana fandresena lahatra (Argument de vente) */
+        .selling-point {
+            background: rgba(255, 204, 0, 0.05);
+            border-left: 3px solid #ffcc00;
+            padding: 10px;
+            font-size: 0.88rem;
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
 
-    .hero-buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        /* Bokotra ato anatin'ny card */
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            background: transparent;
+            color: #ffcc00;
+            border: 1px solid #ffcc00;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-    .btn {
-      padding: 15px 35px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.4s;
-    }
+        .card-btn:hover {
+            background: #ffcc00;
+            color: #0d0d0d;
+        }
 
-    .btn-gold {
-      background: gold;
-      color: black;
-    }
+        .card-btn i {
+            margin-left: 8px;
+            font-size: 0.8rem;
+        }
 
-    .btn-gold:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(255,215,0,0.5);
-    }
-
-    .btn-outline {
-      border: 1px solid gold;
-      color: gold;
-    }
-
-    .btn-outline:hover {
-      background: gold;
-      color: black;
-    }
-
-    section {
-      padding: 100px 10%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-title h2 {
-      font-size: 45px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #aaa;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 35px;
-      border-radius: 25px;
-      backdrop-filter: blur(12px);
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: gold;
-    }
-
-    .card h3 {
-      color: gold;
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
-
-    .card p {
-      color: #ccc;
-      line-height: 1.7;
-    }
-
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .portfolio-item {
-      overflow: hidden;
-      border-radius: 25px;
-      position: relative;
-      height: 260px;
-      background: linear-gradient(135deg,#111,#1b1b1b);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .portfolio-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .price-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 25px;
-      padding: 40px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.4s;
-    }
-
-    .price-card:hover {
-      transform: translateY(-10px);
-      border-color: gold;
-    }
-
-    .price-card h3 {
-      color: gold;
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
-
-    .price {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .price-card ul {
-      list-style: none;
-      margin-bottom: 30px;
-    }
-
-    .price-card ul li {
-      margin: 10px 0;
-      color: #ccc;
-    }
-
-    .contact {
-      text-align: center;
-      background: rgba(255,255,255,0.04);
-      border-radius: 30px;
-      padding: 70px 30px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact h2 {
-      font-size: 50px;
-      margin-bottom: 20px;
-    }
-
-    .contact p {
-      color: #ccc;
-      margin-bottom: 35px;
-    }
-
-    footer {
-      padding: 40px 10%;
-      text-align: center;
-      color: #888;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: gold;
-      color: black;
-      padding: 16px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 0 25px rgba(255,215,0,0.4);
-      z-index: 999;
-    }
-
-    @media(max-width:768px){
-      .hero-content h1 {
-        font-size: 42px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .contact h2 {
-        font-size: 34px;
-      }
-    }
-  </style>
+        /* 4. Responsive ho an'ny Smartphone */
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 2rem; }
+            body { padding: 40px 15px; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="bg-glow glow-1"></div>
-<div class="bg-glow glow-2"></div>
+    <div class="container">
+        <div class="section-header">
+            <h2>Nos Solutions Digitales</h2>
+            <p>Propulsez votre activité grâce à des services premium conçus pour maximiser votre impact et attirer des clients qualifiés.</p>
+        </div>
 
-<header>
-  <div class="logo">CONCEPTE BY RAKOTO</div>
+        <div class="services-grid">
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#pricing">Prix</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+            <div class="service-card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="card-title">Création Site Web</h3>
+                    <p class="card-description">Des sites modernes, ultra-rapides, responsive (adaptés aux mobiles) et entièrement optimisés pour les entreprises et les marques qui visent l'excellence.</p>
+                    <p class="selling-point">💡 Un site professionnel est le miroir de votre crédibilité. Ne laissez plus vos concurrents prendre les devants.</p>
+                </div>
+                <a href="#" class="card-btn">Commander mon site <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      Créez une présence digitale <span class="gold">LUXE PREMIUM</span>
-    </h1>
+            <div class="service-card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="card-title">Landing Pages</h3>
+                    <p class="card-description">Des pages de vente à haute conversion, stratégiquement structurées pour capturer l'attention immédiate de vos prospects et générer des ventes en continu.</p>
+                    <p class="selling-point">🎯 Transformez vos simples visiteurs en clients actifs grâce à un parcours utilisateur optimisé au millimètre.</p>
+                </div>
+                <a href="#" class="card-btn">Lancer ma campagne <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
 
-    <p>
-      Nous créons des sites web modernes, rapides et optimisés pour attirer plus de clients et développer votre business.
-    </p>
+            <div class="service-card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="card-title">Branding & Logo</h3>
+                    <p class="card-description">Création d'une identité visuelle unique et premium (logos, chartes graphiques, visuels) pour rendre votre marque mémorable et instantanément reconnaissable.</p>
+                    <p class="selling-point">💎 Le design premium attire les clients premium. Imposez votre valeur dès le premier regard.</p>
+                </div>
+                <a href="#" class="card-btn">Créer mon identité <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
 
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-gold">Voir Portfolio</a>
-      <a href="https://wa.me/261379412593" class="btn btn-outline">Commander Maintenant</a>
+            <div class="service-card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="card-title">SEO Google</h3>
+                    <p class="card-description">Optimisation SEO poussée pour propulser votre site sur les premiers résultats de Google, devancer vos rivaux et attirer un trafic organique qualifié.</p>
+                    <p class="selling-point">🚀 Soyez visible là où vos clients vous cherchent. Plus de visibilité signifie plus de chiffre d'affaires.</p>
+                </div>
+                <a href="#" class="card-btn">Booster mon SEO <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
     </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="section-title">
-    <h2>Nos Services</h2>
-    <p>Solutions digitales premium pour votre business.</p>
-  </div>
-
-  <div class="services">
-    <div class="card">
-      <h3>Création Site Web</h3>
-      <p>Sites modernes, responsive et optimisés Google pour entreprises et marques premium.</p>
-    </div>
-
-    <div class="card">
-      <h3>Landing Pages</h3>
-      <p>Pages haute conversion conçues pour attirer plus de clients et générer des ventes.</p>
-    </div>
-
-    <div class="card">
-      <h3>Branding & Logo</h3>
-      <p>Création identité visuelle premium pour rendre votre marque plus professionnelle.</p>
-    </div>
-
-    <div class="card">
-      <h3>SEO Google</h3>
-      <p>Optimisation SEO pour améliorer votre visibilité sur Google et attirer du trafic.</p>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="section-title">
-    <h2>Portfolio Premium</h2>
-    <p>Quelques projets modernes réalisés par notre agence.</p>
-  </div>
-
-  <div class="portfolio">
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="project">
-      <div class="portfolio-overlay">
-        <h3>Restaurant Website</h3>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop" alt="project">
-      <div class="portfolio-overlay">
-        <h3>Luxury Agency</h3>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="project">
-      <div class="portfolio-overlay">
-        <h3>Business Landing Page</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing">
-  <div class="section-title">
-    <h2>Nos Offres</h2>
-    <p>Choisissez la formule adaptée à votre business.</p>
-  </div>
-
-  <div class="pricing">
-    <div class="price-card">
-      <h3>Starter</h3>
-      <div class="price">250K Ar</div>
-      <ul>
-        <li>Landing Page</li>
-        <li>Responsive Mobile</li>
-        <li>WhatsApp intégré</li>
-      </ul>
-      <a href="https://wa.me/261379412593" class="btn btn-gold">Commander</a>
-    </div>
-
-    <div class="price-card">
-      <h3>Business</h3>
-      <div class="price">600K Ar</div>
-      <ul>
-        <li>Site Premium</li>
-        <li>SEO Optimisé</li>
-        <li>Animations Modernes</li>
-      </ul>
-      <a href="https://wa.me/261379412593" class="btn btn-gold">Commander</a>
-    </div>
-
-    <div class="price-card">
-      <h3>Gold Premium</h3>
-      <div class="price">1.2M Ar</div>
-      <ul>
-        <li>Site + SEO</li>
-        <li>Branding complet</li>
-        <li>Support Premium</li>
-      </ul>
-      <a href="https://wa.me/261379412593" class="btn btn-gold">Commander</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact">
-    <h2>Prêt à développer votre business ?</h2>
-    <p>
-      Contactez CONCEPTE BY RAKOTO dès aujourd’hui pour créer votre site web premium.
-    </p>
-
-    <a href="https://wa.me/261379412593" class="btn btn-gold">
-      WhatsApp Direct
-    </a>
-  </div>
-</section>
-
-<footer>
-  © 2026 CONCEPTE BY RAKOTO — Agence Digitale Luxe Premium
-</footer>
-
-<a class="whatsapp-float" href="https://wa.me/261379412593">
-  WhatsApp
-</a>
 
 </body>
 </html>
