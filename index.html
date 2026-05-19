@@ -3,202 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Services Premium - Digital Expertise</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Nedie Christian R. | Portfolio</title>
     <style>
-        /* 1. Rafitra ankapobeny (Global Styles) */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        /* Fomba fandrindrana ankapobeny */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; background: #f8f9fa; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Loha-pejy (Header) */
+        header { background: #1a252f; color: white; padding: 80px 0; text-align: center; }
+        header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
+        header p { margin: 15px 0 0; font-size: 1.3em; color: #3498db; font-weight: 300; }
 
-        body {
-            background: radial-gradient(circle at top, #1a1a1a 0%, #0d0d0d 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* Mombamomba fohy */
+        .intro { background: white; padding: 40px; border-radius: 8px; margin: -40px auto 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; max-width: 800px; }
+        .intro p { font-size: 1.1em; color: #555; margin: 0; }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
-        }
+        /* Fizarana telo lehibe */
+        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2em; color: #1a252f; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: #3498db; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        
+        .grid-portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid #3498db; padding: 25px; transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5s); }
+        .project-card h3 { margin-top: 0; color: #1a252f; font-size: 1.4em; }
+        .project-card .tag { display: inline-block; background: #e8f4fd; color: #3498db; padding: 3px 10px; border-radius: 20px; font-size: 0.85em; font-weight: 600; margin-bottom: 15px; }
+        .project-card ul { padding-left: 20px; color: #555; }
+        .project-card ul li { margin-bottom: 8px; }
 
-        /* Lohateny lehibe */
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+        /* Bokotra hifandraisana (CTA) */
+        .cta-section { background: #1a252f; color: white; text-align: center; padding: 60px 20px; margin-top: 8px; }
+        .cta-btn { display: inline-block; background: #e74c3c; color: white; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; margin-top: 20px; transition: background 0.2s; }
+        .cta-btn:hover { background: #c0392b; }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: #a0a0a0;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* 2. Rafitry ny Grid ho an'ireo Cards */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        /* 3. Style-n'ny Card tsirairay */
-        .service-card {
-            background: #141414;
-            border: 1px solid #262626;
-            border-radius: 16px;
-            padding: 35px 25px;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Hi-hover-na ny card */
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: #ffcc00;
-            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.1);
-        }
-
-        /* Sary fanehoana (Icons) */
-        .card-icon {
-            font-size: 2.5rem;
-            color: #ffcc00;
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            color: #ffcc00;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .card-description {
-            color: #d4d4d4;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* Andalana fandresena lahatra (Argument de vente) */
-        .selling-point {
-            background: rgba(255, 204, 0, 0.05);
-            border-left: 3px solid #ffcc00;
-            padding: 10px;
-            font-size: 0.88rem;
-            color: #a0a0a0;
-            font-style: italic;
-            margin-bottom: 25px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Bokotra ato anatin'ny card */
-        .card-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            background: transparent;
-            color: #ffcc00;
-            border: 1px solid #ffcc00;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card-btn:hover {
-            background: #ffcc00;
-            color: #0d0d0d;
-        }
-
-        .card-btn i {
-            margin-left: 8px;
-            font-size: 0.8rem;
-        }
-
-        /* 4. Responsive ho an'ny Smartphone */
-        @media (max-width: 768px) {
-            .section-header h2 { font-size: 2rem; }
-            body { padding: 40px 15px; }
-        }
+        /* Footer */
+        footer { text-align: center; padding: 25px; background: #111a22; color: #7f8c8d; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Nedie Christian R.</h1>
+            <p>Digital Marketer & Technical Specialist</p>
+        </div>
+    </header>
+
+    <!-- INTRO -->
     <div class="container">
-        <div class="section-header">
-            <h2>Nos Solutions Digitales</h2>
-            <p>Propulsez votre activité grâce à des services premium conçus pour maximiser votre impact et attirer des clients qualifiés.</p>
+        <div class="intro">
+            <p>Manampy ireo orinasa sy mpivarotra hampitombo ny mpanjifa amin'ny alàlan'ny paikady dizitaly, famoronana marika (Branding), ary vahaolana ara-teknika matanjaka aho.</p>
         </div>
 
-        <div class="services-grid">
-
-            <div class="service-card">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 class="card-title">Création Site Web</h3>
-                    <p class="card-description">Des sites modernes, ultra-rapides, responsive (adaptés aux mobiles) et entièrement optimisés pour les entreprises et les marques qui visent l'excellence.</p>
-                    <p class="selling-point">💡 Un site professionnel est le miroir de votre crédibilité. Ne laissez plus vos concurrents prendre les devants.</p>
-                </div>
-                <a href="#" class="card-btn">Commander mon site <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- NY ASA ATAO (ZARAO TELO) -->
+        <h2 class="section-title">Mes Expertises & Projets</h2>
+        
+        <div class="grid-portfolio">
+            
+            <!-- 1. GRAPHIC DESIGN -->
+            <div class="project-card" style="border-top-color: #2ecc71;">
+                <span class="tag" style="background: #e8f8f0; color: #2ecc71;">Design Graphics</span>
+                <h3>Conception d'Identité Visuelle & Étiquettes</h3>
+                <p>Famoronana endrika ivelany matihanina ho an'ny vokatra mba hisintonana ny mpanjifa avy hatrany:</p>
+                <ul>
+                    <li>Fandrefesana sy famoronana étiquettes ho an'ny vokatra (Ohatra: Huile de coco, Miel, sns).</li>
+                    <li>Fandrafetana afisy fampiroboroboana ny varotra ho an'ny fivarotana sy supermarché.</li>
+                    <li>Branding madio sy mifanaraka amin'ny tsena ankehitriny.</li>
+                </ul>
             </div>
 
-            <div class="service-card">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-                    <h3 class="card-title">Landing Pages</h3>
-                    <p class="card-description">Des pages de vente à haute conversion, stratégiquement structurées pour capturer l'attention immédiate de vos prospects et générer des ventes en continu.</p>
-                    <p class="selling-point">🎯 Transformez vos simples visiteurs en clients actifs grâce à un parcours utilisateur optimisé au millimètre.</p>
-                </div>
-                <a href="#" class="card-btn">Lancer ma campagne <i class="fa-solid fa-arrow-right"></i></a>
+            <!-- 2. DIGITAL MARKETING -->
+            <div class="project-card" style="border-top-color: #3498db;">
+                <span class="tag">Digital Marketing</span>
+                <h3>Stratégie Publicitaire & Gestion de Visibilité</h3>
+                <p>Fitantanana ny fampahafantarana ny fivarotana sy ny vokatra eny amin'ny tontolo dizitaly:</p>
+                <ul>
+                    <li>Famoronana sy fandrindrana lisitry ny vidin'entana (Price lists) mazava tsara amin'ny tambajotra.</li>
+                    <li>Paikady fanaovana dokam-barotra mikitika mivantana ny mpanjifa (Targeted Ads).</li>
+                    <li>Fampisondrotana ny fidirana sy ny fahatokisan'ny mpanjifa amin'ny fivarotana.</li>
+                </ul>
             </div>
 
-            <div class="service-card">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
-                    <h3 class="card-title">Branding & Logo</h3>
-                    <p class="card-description">Création d'une identité visuelle unique et premium (logos, chartes graphiques, visuels) pour rendre votre marque mémorable et instantanément reconnaissable.</p>
-                    <p class="selling-point">💎 Le design premium attire les clients premium. Imposez votre valeur dès le premier regard.</p>
-                </div>
-                <a href="#" class="card-btn">Créer mon identité <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="service-card">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3 class="card-title">SEO Google</h3>
-                    <p class="card-description">Optimisation SEO poussée pour propulser votre site sur les premiers résultats de Google, devancer vos rivaux et attirer un trafic organique qualifié.</p>
-                    <p class="selling-point">🚀 Soyez visible là où vos clients vous cherchent. Plus de visibilité signifie plus de chiffre d'affaires.</p>
-                </div>
-                <a href="#" class="card-btn">Booster mon SEO <i class="fa-solid fa-arrow-right"></i></a>
+            <!-- 3. TECHNICAL SETUP -->
+            <div class="project-card" style="border-top-color: #e67e22;">
+                <span class="tag" style="background: #fdf2e9; color: #e67e22;">Technical Setup</span>
+                <h3>Installation Système & Support Technique</h3>
+                <p>Fandaminana sy fikojakojana ireo fitaovana ilaina amin'ny fampandehanana ny varotra:</p>
+                <ul>
+                    <li>Fampifandray sy configuration ny fitaovana famoahana rosia (Receipt Printer / Xprinter).</li>
+                    <li>Fandrindrana ny Serial Ports sy driver ho an'ny rafitra informatika.</li>
+                    <li>Fitiliana sy fanaraha-maso (Testing) ny fizotran'ny asa ara-teknika tsy misy raka.</li>
+                </ul>
             </div>
 
         </div>
     </div>
+
+    <!-- CTA / FIFANDRAISANA -->
+    <div class="cta-section">
+        <div class="container">
+            <h2>Besoin d'un coup de boost pour votre activité ?</h2>
+            <p>Andao hiara-hiasa amin'ny tetikasanao manaraka mba hampitomboana ny mpanjifanao.</p>
+            <a href="mailto:votre-email@gmail.com" class="cta-btn">Contactez-moi par Email</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 - Nedie Christian R. Tous droits réservés.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
